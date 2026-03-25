@@ -83,7 +83,6 @@ export function useAnamnesisTemplates(activeOnly = false) {
       // Convert campos from Json to CampoAnamnese[]
     return (data || []).map(item => ({
         ...item,
-        description: item.descr0iption,
         campos: jsonToCampos(item.campos),
       })) as unknown as AnamnesisTemplate[];
     },
