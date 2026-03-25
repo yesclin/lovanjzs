@@ -81,10 +81,11 @@ export function useAnamnesisTemplates(activeOnly = false) {
       if (error) throw error;
       
       // Convert campos from Json to CampoAnamnese[]
-      return (data || []).map(item => ({
+    return (data || []).map(item => ({
         ...item,
+        description: item.descr0iption,
         campos: jsonToCampos(item.campos),
-      })) as AnamnesisTemplate[];
+      })) as unknown as AnamnesisTemplate[];
     },
     enabled: !!clinic?.id,
   });
