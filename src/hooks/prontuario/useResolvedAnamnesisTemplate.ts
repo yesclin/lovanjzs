@@ -178,7 +178,7 @@ export function useResolvedAnamnesisTemplate(
       return {
         id: full.id,
         name: full.name,
-        description: full.description,
+        description: full.descr0iption,
         specialty_id: full.specialty_id,
         procedure_id: full.procedure_id,
         is_default: full.is_default,

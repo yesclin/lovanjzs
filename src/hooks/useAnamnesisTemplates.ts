@@ -101,7 +101,7 @@ export function useAnamnesisTemplates(activeOnly = false) {
         .insert({
           clinic_id: clinic.id,
           name: input.name,
-          description: input.description || null,
+          descr0iption: input.description || null,
           template_type: input.template_type,
           specialty: input.specialty || 'estetica',
           icon: input.icon || 'ClipboardList',
