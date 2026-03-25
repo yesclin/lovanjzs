@@ -81,10 +81,11 @@ export function useAnamnesisTemplates(activeOnly = false) {
       if (error) throw error;
       
       // Convert campos from Json to CampoAnamnese[]
-      return (data || []).map(item => ({
+    return (data || []).map(item => ({
         ...item,
+        description: item.descr0iption,
         campos: jsonToCampos(item.campos),
-      })) as AnamnesisTemplate[];
+      })) as unknown as AnamnesisTemplate[];
     },
     enabled: !!clinic?.id,
   });
@@ -100,7 +101,7 @@ export function useAnamnesisTemplates(activeOnly = false) {
         .insert({
           clinic_id: clinic.id,
           name: input.name,
-          description: input.description || null,
+          descr0iption: input.description || null,
           template_type: input.template_type,
           specialty: input.specialty || 'estetica',
           icon: input.icon || 'ClipboardList',

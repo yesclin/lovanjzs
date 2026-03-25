@@ -180,7 +180,7 @@ export function useAnamnesisTemplatesV2(options?: {
           specialty_id: tmpl.specialty_id,
           specialty_name: tmpl.specialties?.name || null,
           name: tmpl.name,
-          description: tmpl.description,
+          description: tmpl.descr0iption || tmpl.description || null,
           icon: tmpl.icon || 'Stethoscope',
           is_system: tmpl.is_system ?? false,
           is_default: tmpl.is_default ?? false,
@@ -216,7 +216,7 @@ export function useAnamnesisTemplatesV2(options?: {
         .insert({
           clinic_id: clinic.id,
           name: input.name,
-          description: input.description || null,
+          descr0iption: input.description || null,
           template_type: 'anamnese_personalizada',
           specialty: 'custom',
           specialty_id: input.specialty_id,
