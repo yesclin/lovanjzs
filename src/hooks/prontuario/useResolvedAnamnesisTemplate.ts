@@ -78,7 +78,7 @@ export function useResolvedAnamnesisTemplate(
       const allTemplates: TemplateOption[] = templates.map((t) => ({
         id: t.id,
         name: t.name,
-        description: t.descr0iption,
+        description: t.description,
         procedure_id: t.procedure_id,
         is_default: t.is_default,
         is_system: t.is_system,
