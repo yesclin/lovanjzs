@@ -59,7 +59,7 @@ export function useResolvedAnamnesisTemplate(
 
       const { data: templates, error } = await supabase
         .from("anamnesis_templates")
-        .select("id, name, descr0iption, specialty_id, procedure_id, is_default, is_system, current_version_id, campos")
+        .select("id, name, description, specialty_id, procedure_id, is_default, is_system, current_version_id, campos")
         .eq("specialty_id", specialtyId)
         .eq("is_active", true)
         .eq("archived", false)
@@ -78,7 +78,7 @@ export function useResolvedAnamnesisTemplate(
       const allTemplates: TemplateOption[] = templates.map((t) => ({
         id: t.id,
         name: t.name,
-        description: t.descr0iption,
+        description: t.description,
         procedure_id: t.procedure_id,
         is_default: t.is_default,
         is_system: t.is_system,
@@ -122,7 +122,7 @@ export function useResolvedAnamnesisTemplate(
         resolved: {
           id: resolved.id,
           name: resolved.name,
-          description: resolved.descr0iption,
+          description: resolved.description,
           specialty_id: resolved.specialty_id,
           procedure_id: resolved.procedure_id,
           is_default: resolved.is_default,
@@ -178,7 +178,7 @@ export function useResolvedAnamnesisTemplate(
       return {
         id: full.id,
         name: full.name,
-        description: full.descr0iption,
+        description: full.description,
         specialty_id: full.specialty_id,
         procedure_id: full.procedure_id,
         is_default: full.is_default,

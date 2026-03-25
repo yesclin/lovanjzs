@@ -514,7 +514,7 @@ export type Database = {
           created_at: string
           created_by: string | null
           current_version_id: string | null
-          descr0iption: string | null
+          description: string | null
           icon: string | null
           id: string
           is_active: boolean
@@ -537,7 +537,7 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           current_version_id?: string | null
-          descr0iption?: string | null
+          description?: string | null
           icon?: string | null
           id?: string
           is_active?: boolean
@@ -560,7 +560,7 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           current_version_id?: string | null
-          descr0iption?: string | null
+          description?: string | null
           icon?: string | null
           id?: string
           is_active?: boolean
@@ -601,6 +601,51 @@ export type Database = {
             columns: ["specialty_id"]
             isOneToOne: false
             referencedRelation: "specialties"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      appointment_events: {
+        Row: {
+          appointment_id: string
+          clinic_id: string
+          created_at: string
+          event_data: Json | null
+          event_type: string
+          id: string
+          performed_by: string | null
+        }
+        Insert: {
+          appointment_id: string
+          clinic_id: string
+          created_at?: string
+          event_data?: Json | null
+          event_type: string
+          id?: string
+          performed_by?: string | null
+        }
+        Update: {
+          appointment_id?: string
+          clinic_id?: string
+          created_at?: string
+          event_data?: Json | null
+          event_type?: string
+          id?: string
+          performed_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointment_events_appointment_id_fkey"
+            columns: ["appointment_id"]
+            isOneToOne: false
+            referencedRelation: "appointments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointment_events_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "clinics"
             referencedColumns: ["id"]
           },
         ]
@@ -6088,6 +6133,60 @@ export type Database = {
           },
           {
             foreignKeyName: "patient_clinical_data_patient_id_fkey"
+            columns: ["patient_id"]
+            isOneToOne: false
+            referencedRelation: "patients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      patient_clinical_flags: {
+        Row: {
+          clinic_id: string
+          created_at: string
+          created_by: string | null
+          flag_type: string
+          flag_value: string | null
+          id: string
+          is_active: boolean | null
+          patient_id: string
+          severity: string | null
+          updated_at: string
+        }
+        Insert: {
+          clinic_id: string
+          created_at?: string
+          created_by?: string | null
+          flag_type: string
+          flag_value?: string | null
+          id?: string
+          is_active?: boolean | null
+          patient_id: string
+          severity?: string | null
+          updated_at?: string
+        }
+        Update: {
+          clinic_id?: string
+          created_at?: string
+          created_by?: string | null
+          flag_type?: string
+          flag_value?: string | null
+          id?: string
+          is_active?: boolean | null
+          patient_id?: string
+          severity?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "patient_clinical_flags_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "clinics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "patient_clinical_flags_patient_id_fkey"
             columns: ["patient_id"]
             isOneToOne: false
             referencedRelation: "patients"
