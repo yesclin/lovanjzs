@@ -59,7 +59,7 @@ export function useResolvedAnamnesisTemplate(
 
       const { data: templates, error } = await supabase
         .from("anamnesis_templates")
-        .select("id, name, description, specialty_id, procedure_id, is_default, is_system, current_version_id, campos")
+        .select("id, name, descr0iption, specialty_id, procedure_id, is_default, is_system, current_version_id, campos")
         .eq("specialty_id", specialtyId)
         .eq("is_active", true)
         .eq("archived", false)
