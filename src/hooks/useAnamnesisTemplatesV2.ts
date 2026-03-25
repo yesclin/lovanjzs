@@ -180,7 +180,7 @@ export function useAnamnesisTemplatesV2(options?: {
           specialty_id: tmpl.specialty_id,
           specialty_name: tmpl.specialties?.name || null,
           name: tmpl.name,
-          description: tmpl.descr0iption || tmpl.description || null,
+          description: tmpl.description || null,
           icon: tmpl.icon || 'Stethoscope',
           is_system: tmpl.is_system ?? false,
           is_default: tmpl.is_default ?? false,
