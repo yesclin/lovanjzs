@@ -216,7 +216,7 @@ export function useAnamnesisTemplatesV2(options?: {
         .insert({
           clinic_id: clinic.id,
           name: input.name,
-          descr0iption: input.description || null,
+          description: input.description || null,
           template_type: 'anamnese_personalizada',
           specialty: 'custom',
           specialty_id: input.specialty_id,
